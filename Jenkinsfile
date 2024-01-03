@@ -39,7 +39,7 @@ pipeline {
 	  
     stage('Maven Test') {
       steps {
-        sh 'mvn test'
+        sh '/opt/maven/bin/mvn test'
       }
     }
 	  
@@ -48,8 +48,8 @@ pipeline {
     stage('Build Docker Image') {
 
       steps {
-        sh 'docker build -t 7lawa/devops:latest .'
-        //sh 'docker tag abctechnologies 7lawa/devops:latest'
+        sh 'docker build -t reddymnk/devops:latest .'
+        //sh 'docker tag abctechnologies reddymnk/devops:latest'
       }
     }
 	  
@@ -65,7 +65,7 @@ pipeline {
 	  
     stage('Push Image to dockerHUb') {
       steps {
-        sh 'docker push 7lawa/devops:latest'
+        sh 'docker push reddymnk/devops:latest'
       }
       post {
         always {
