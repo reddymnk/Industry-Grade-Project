@@ -3,10 +3,10 @@ pipeline {
 
 	
   environment {
-    DOCKERHUB_CREDENTIALS = credentials('docker')
+    DOCKERHUB_CREDENTIALS = credentials('reddymnk')
     ANSIBLE_PRIVATE_KEY = credentials('ansible_key')
     //REMOTE_SERVER = '3.89.140.22'
-    REMOTE_USER = 'dockeradmin' 	  	  
+    REMOTE_USER = 'neela1' 	  	  
   }
 	
   // Fetch code from GitHub
@@ -23,7 +23,7 @@ pipeline {
 	  
     stage('Maven Build') {
       steps {
-        sh 'mvn clean install'
+        sh 'sudo /opt/maven/bin/mvn clean install'
       }
 	    
      // Post building archive Java application
@@ -39,7 +39,7 @@ pipeline {
 	  
     stage('Maven Test') {
       steps {
-        sh '/opt/maven/bin/mvn test'
+        sh 'sudo /opt/maven/bin/mvn test'
       }
     }
 	  
@@ -48,8 +48,8 @@ pipeline {
     stage('Build Docker Image') {
 
       steps {
-        sh 'docker build -t reddymnk/devops:latest .'
-        //sh 'docker tag abctechnologies reddymnk/devops:latest'
+        sh 'sudo ocker build -t reddymnk/devops:latest .'
+        //sh 'sudo ocker tag abctechnologies reddymnk/devops:latest'
       }
     }
 	  
@@ -65,11 +65,11 @@ pipeline {
 	  
     stage('Push Image to dockerHUb') {
       steps {
-        sh 'docker push reddymnk/devops:latest'
+        sh 'sudo ocker push reddymnk/devops:latest'
       }
       post {
         always {
-          sh 'docker logout'
+          sh 'sudo ocker logout'
         }
       }
 
