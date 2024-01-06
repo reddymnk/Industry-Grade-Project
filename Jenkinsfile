@@ -5,7 +5,7 @@ pipeline {
   environment {
     DOCKERHUB_CREDENTIALS = credentials('reddymnk')
     ANSIBLE_PRIVATE_KEY = credentials('ansible_key')
-    //REMOTE_SERVER = '3.89.140.22'
+    //REMOTE_SERVER = '192.168.1.11'
     REMOTE_USER = 'neela1' 	  	  
   }
 	
@@ -75,7 +75,7 @@ pipeline {
 
     }
 	  
-   // Pull docker image from DockerHub and run in EC2 instance 
+   // Pull docker image from DockerHub and run in neelapc2 instance 
 	  
    stage('Deploy to K8 cluster') {
         steps {
