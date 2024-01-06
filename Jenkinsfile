@@ -3,7 +3,7 @@ pipeline {
 
 	
   environment {
-    DOCKERHUB_CREDENTIALS = credentials('neela1')
+    DOCKERHUB_CREDENTIALS = credentials('reddymnk')
     ANSIBLE_PRIVATE_KEY = credentials('/home/neela1/.ssh/id_rsa')
     //REMOTE_SERVER = '192.168.1.11'
     REMOTE_USER = 'neela1' 	  	  
