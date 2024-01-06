@@ -48,8 +48,8 @@ pipeline {
     stage('Build Docker Image') {
 
       steps {
-        sh 'sudo ocker build -t reddymnk/devops:latest .'
-        //sh 'sudo ocker tag abctechnologies reddymnk/devops:latest'
+        sh 'sudo docker build -t reddymnk/devops:latest .'
+        //sh 'sudo docker tag abctechnologies reddymnk/devops:latest'
       }
     }
 	  
@@ -65,7 +65,7 @@ pipeline {
 	  
     stage('Push Image to dockerHUb') {
       steps {
-        sh 'sudo ocker push reddymnk/devops:latest'
+        sh 'sudo docker push reddymnk/devops:latest'
       }
       post {
         always {
