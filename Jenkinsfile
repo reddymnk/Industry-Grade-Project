@@ -1,5 +1,5 @@
 pipeline {
-   agent { label 'localhost' }
+   agent { label '192.168.1.10' }
 
 	
   environment {
