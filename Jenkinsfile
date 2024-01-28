@@ -1,12 +1,12 @@
 pipeline {
-   agent { label 'neelapc2' }
+   agent { label 'NEELA-NODE2' }
 
 	
   environment {
     DOCKERHUB_CREDENTIALS = credentials('reddymnk')
     ANSIBLE_PRIVATE_KEY = credentials('ansible_key')
     //REMOTE_SERVER = '192.168.1.11'
-    REMOTE_USER = 'neela1' 	  	  
+    REMOTE_USER = 'ubuntu' 	  	  
   }
 	
   // Fetch code from GitHub
