@@ -69,7 +69,7 @@ pipeline {
       }
       post {
         always {
-          sh 'sudo ocker logout'
+          sh 'sudo docker logout'
         }
       }
 
