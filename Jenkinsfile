@@ -6,7 +6,7 @@ pipeline {
     DOCKERHUB_CREDENTIALS = credentials('neela1')
     ANSIBLE_PRIVATE_KEY = credentials('ansible_key')
     //REMOTE_SERVER = '192.168.1.11'
-    REMOTE_USER = 'ubuntu' 	  	  
+    REMOTE_USER = 'neela1' 	  	  
   }
 	
   // Fetch code from GitHub
