@@ -1,5 +1,5 @@
 pipeline {
-   agent { label 'neelapc1' }
+   agent { label 'localhost' }
 
 	
   environment {
