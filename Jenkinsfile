@@ -1,5 +1,5 @@
 pipeline {
-   agent { label 'NEELA-NODE2' }
+   agent { label 'neelapc2' }
 
 	
   environment {
