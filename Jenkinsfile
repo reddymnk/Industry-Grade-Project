@@ -1,5 +1,5 @@
 pipeline {
-   agent { label '192.168.1.10' }
+   agent { label 'Built-In Node' }
 
 	
   environment {
