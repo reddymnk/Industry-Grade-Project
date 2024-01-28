@@ -23,7 +23,7 @@ pipeline {
 	  
     stage('Maven Build') {
       steps {
-        sh 'sudo /opt/maven/bin/mvn clean install'
+        sh 'sudo mvn clean install'
       }
 	    
      // Post building archive Java application
@@ -39,7 +39,7 @@ pipeline {
 	  
     stage('Maven Test') {
       steps {
-        sh 'sudo /opt/maven/bin/mvn test'
+        sh 'sudo mvn test'
       }
     }
 	  
