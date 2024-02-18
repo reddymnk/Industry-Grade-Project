@@ -1,5 +1,0 @@
-<<<<<<< HEAD
-New File 1 Added
-=======
-New file 1 added
->>>>>>> origin/origin

@@ -14,11 +14,11 @@ space:
 
         selector:
                 matchLabels:
-                        app: abc-tech-app
+                        app: abc-tech-projapp
         template:
                 metadata:
                         labels:
-                                app: abc-tech-app
+                                app: abc-tech-projapp
                 spec:
                   containers:
                     - image: reddymnk/mytomcat
@@ -31,7 +31,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: abc-tech-app
+    app: abc-tech-projapp
   ports:
     - port: 80 #Cluster port
       targetPort: 8080 #container image port

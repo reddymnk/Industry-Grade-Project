@@ -25,7 +25,7 @@
               var: out
              #- name: Deploying to kubernetes
         - name: Create a Deployment by reading the definition from a local file 
-          command: "kubectl --kubeconfig=/etc/kubernetes/admin.conf apply -f /home/neelapc1/Industry-Grade-Project/deployment.yml"    
+          command: "kubectl --kubeconfig=/etc/kubernetes/admin.conf apply -f /home/neelapc1/Industry-Grade-Project/Deployment.yml"    
           register: out
         - debug:
               var: out
