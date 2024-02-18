@@ -1,0 +1,4 @@
+FROM tomcat:latest
+ADD **/*.war /usr/local/tomcat/webapps
+EXPOSE 80
+CMD /usr/local/tomcat/bin/catalina.sh run
