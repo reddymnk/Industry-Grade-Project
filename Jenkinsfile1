@@ -3,7 +3,7 @@ pipeline {
 
 	
   environment {
-    DOCKERHUB_CREDENTIALS = credentials('neela1')
+    DOCKERHUB_CREDENTIALS = credentials('reddymnk')
     ANSIBLE_PRIVATE_KEY = credentials('ansible_key')
     //REMOTE_SERVER = '192.168.1.11'
     REMOTE_USER = 'neela1' 	  	  
@@ -14,7 +14,7 @@ pipeline {
   stages {
     stage('checkout') {
       steps {
-        git branch: 'master', url: 'https://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@github.com/reddymnk/Industry-Grade-Project'
+        git branch: 'master', url: 'https://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@github.com/reddymnk/Industry-Grade-Project'
 
       }
     }
