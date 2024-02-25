@@ -14,7 +14,7 @@ pipeline {
   stages {
     stage('checkout') {
       steps {
-        git branch: 'master', url: 'https://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@github.com/reddymnk/Industry-Grade-Project'
+        git branch: 'master', url: 'https://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@github.com/reddymnk/Industry-Grade-Project'
 
       }
     }
