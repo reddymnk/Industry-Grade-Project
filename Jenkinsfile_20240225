@@ -3,7 +3,7 @@ pipeline {
 
 	
   environment {
-    DOCKERHUB_CREDENTIALS = credentials('reddymnk')
+    DOCKERHUB_CREDENTIALS = credentials('neela1')
     ANSIBLE_PRIVATE_KEY = credentials('ansible_key')
     //REMOTE_SERVER = '192.168.1.11'
     REMOTE_USER = 'neela1' 	  	  
@@ -14,7 +14,7 @@ pipeline {
   stages {
     stage('checkout') {
       steps {
-        git branch: 'master', url: 'https://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@github.com/reddymnk/Industry-Grade-Project'
+        git branch: 'main', url: 'https://github.com/reddymnk/Industry-Grade-Project'
 
       }
     }
@@ -48,8 +48,8 @@ pipeline {
     stage('Build Docker Image') {
 
       steps {
-        sh 'sudo docker build -t reddymnk/myabc-app:latest .'
-        //sh 'sudo docker tag abctechnologies reddymnk/myabc-app:latest'
+        sh 'sudo docker build -t reddymnk/devops:latest .'
+        //sh 'sudo docker tag abctechnologies reddymnk/devops:latest'
       }
     }
 	  
@@ -65,7 +65,7 @@ pipeline {
 	  
     stage('Push Image to dockerHUb') {
       steps {
-        sh 'sudo docker push reddymnk/myabc-app:latest'
+        sh 'sudo docker push reddymnk/devops:latest'
       }
       post {
         always {
@@ -74,4 +74,14 @@ pipeline {
       }
 
     }
+	  
+   // Pull docker image from DockerHub and run in neelapc2 instance 
+	  
+   stage('Deploy to K8 cluster') {
+        steps {
+         // Run the Ansible playbook locally on the Jenkins machine
+                sh  'ansible-playbook -i /var/lib/jenkins/hosts /var/lib/jenkins/playbook1.yaml --key-file "/var/lib/jenkins/ansible_key"'
+	   }
+	}
+  }
 }
