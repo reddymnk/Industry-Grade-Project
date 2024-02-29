@@ -3,7 +3,7 @@ pipeline {
 
 	
   environment {
-    DOCKERHUB_CREDENTIALS = credentials('reddymnk')
+    DOCKERHUB_CREDENTIALS = credentials('dcoker-hub-credentials')
     ANSIBLE_PRIVATE_KEY = credentials('ansible_key')
     //REMOTE_SERVER = '192.168.1.11'
     REMOTE_USER = 'neela1' 	  	  
@@ -12,9 +12,9 @@ pipeline {
   // Fetch code from GitHub
 	
   stages {
-    stage('checkout') {
+    stage('Clone the Repo') {
       steps {
-        git branch: 'master', url: 'https://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@github.com/reddymnk/Industry-Grade-Project'
+        git 'https://github.com/reddymnk/Industry-Grade-Project'
 
       }
     }
@@ -48,7 +48,7 @@ pipeline {
     stage('Build Docker Image') {
 
       steps {
-        sh 'sudo docker build -t reddymnk/myabc-app:latest .'
+        sh 'sudo docker build -t myabc-app:latest .'
         //sh 'sudo docker tag abctechnologies reddymnk/myabc-app:latest'
       }
     }
@@ -57,7 +57,7 @@ pipeline {
 	  
     stage('Login to DockerHub') {
       steps {
-        sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u    $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+        sh 'echo $DOCKERHUB_CREDENTIALS | docker login -u    $DOCKERHUB_CREDENTIALS --password-stdin'
       }
     }
 	  
