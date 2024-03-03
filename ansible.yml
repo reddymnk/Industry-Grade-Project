@@ -1,31 +1,30 @@
-- hosts: localhost
-  become: yes
-  tasks:
+---
+hosts: all
+become: yes
+tasks:
         - name: Build an image and push it to a private repo
-          docker:
-              build:
-                  path: "/home/neela1/Industry-Grade-Project"
-              name: docker.io/reddymnk/abctechnologies
-              #tag: test
-              push: true
-              source: build
-          register: out
+          community.docker_image:
+                  build:
+                          path: /home/neela1/Industry-Grade-Project
+                          name: docker.io/reddymnk/abctechnologies
+                          tag: test
+                          push: true
+                          source: build
+                  register: out
         - debug:
-              var: out  
+                var: out
         - name: start a container
-          docker:
-             name: abc-application
-             image: reddymnk/abctechnologies 
-             state: started
-             ports:
-                 - 1234:8080
-             #restart: true
-          register: out
+          community.docker_container:
+                  name: abc-application
+                  image: reddymnk/abctechnologies
+                  state: started
+                  ports:
+                          - 1234:8080
+          register: out_start
         - debug:
-              var: out
-             #- name: Deploying to kubernetes
-        - name: Create a Deployment by reading the definition from a local file 
-          command: "kubectl --kubeconfig=/etc/kubernetes/admin.conf apply -f /home/neela1/Industry-Grade-Project/Deployment.yml"    
-          register: out
+                var: out_start
+        - name: Create a Deployment by reading the definition from a local file
+          command: kubectl --kubeconfig=/etc/kubernetes/admin.conf apply -f /home/neela1/Industry-Grade-Project/Deployment.yml
+          register: out_kubeout
         - debug:
-              var: out
+                var: out_kubeout
