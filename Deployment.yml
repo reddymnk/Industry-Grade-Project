@@ -19,7 +19,7 @@ metadata:
                                 app: abc-tech-projapp
         spec:
                 containers:
-                        - image: reddymnk/mydevops
+                        - image: reddymnk/mydevopsabcabc
                           names: abc-tech-projapp
 ---
 kind: Service
