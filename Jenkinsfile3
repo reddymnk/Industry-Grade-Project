@@ -2,8 +2,7 @@ pipeline {
    agent { label 'neelapc2' }  	  
       stages {
          stage('Deploy Deployments') {
-           steps{
-               //Run the Ansible playbook to install Deployements
+           steps {
                 sh  'ansible-playbook -i /usr/bin/ansible-playbook -i /home/neela1/Industry-Grade-Project/hosts -l 'neelapc1'  /home/neela1/Industry-Grade-Project/Deployment.yml --key-file "/home/neela1/.ssh/id_rsa"'
               }
            }
