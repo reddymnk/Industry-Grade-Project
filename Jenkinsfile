@@ -47,7 +47,7 @@ pipeline {
     stage('Build Docker Image') {
 
     steps {
-        sh 'docker build -t mydevopsabcabc:latest .'
+        sh 'docker build -t mydevopsabc:latest .'
         sh 'docker tag mydevopsabc  reddymnk/mydevopsabc:latest'
     }
 }
