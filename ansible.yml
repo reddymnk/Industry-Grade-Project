@@ -2,10 +2,10 @@
   become: yes
   tasks:
         - name: Build an image and push it to a private repo
-          community.docker.docker_image:
+          docker:
               build:
                   path: "/home/neela1/Industry-Grade-Project"
-              name: docker.io/reddymnk/mytomcat
+              name: docker.io/reddymnk/abctechnologies
               #tag: test
               push: true
               source: build
@@ -13,7 +13,7 @@
         - debug:
               var: out  
         - name: start a container
-          community.docker.docker_container:
+          docker:
              name: abc-application
              image: reddymnk/abctechnologies 
              state: started
