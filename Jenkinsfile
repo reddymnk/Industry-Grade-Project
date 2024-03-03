@@ -79,7 +79,7 @@ pipeline {
 
      stage('Deploy to K8 cluster') {
          steps {
-                sh  'kubectl --kubeconfig=/etc/kubernetes/admin.conf apply -f /home/neela1/Industry-Grade-Project/Deployment.yml'
+                sh  'kubectl --kubeconfig=/etc/kubernetes/admin.conf apply -f /home/neela1/Industry-Grade-Project/deployment2.yml'
            
          }
      }
