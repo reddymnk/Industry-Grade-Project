@@ -1,5 +1,5 @@
 pipeline {
-   agent any
+   agent { label 'neelapc1' }
 
 
   environment {
