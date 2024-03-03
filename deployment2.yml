@@ -16,6 +16,9 @@ spec:
     spec:
       containers:
       - name: mydevopsabc
-        image: mydevopsabc:latest
+        image: reddymnk/mydevopsabc:latest
         ports:
-        - containerPort: 80
+        - protocol: TCP
+          port: 8089
+          TargetPort: 8080
+       type: ClusterIP
