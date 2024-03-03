@@ -1,7 +1,7 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-        name: abctechnologies-dep
+        name: abc-tech-projapp
         space:
                 replicas: 2
                 miniReadySeconds: 45
