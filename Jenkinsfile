@@ -81,7 +81,7 @@ pipeline {
          steps {
 	     scripts {
                // Run the Ansible playbook locally on the Jenkins machine
-                sh  '/usr/bin/ansible-playbook -i /home/neela1/Industry-Grade-Project/hosts  /home/neela1/Industry-Grade-Project/Deployment.yml --key-file "/home/neela1/.ssh/id_rsa"'
+                sh  '/usr/bin/ansible-playbook -i /home/neela1/Industry-Grade-Project/hosts  /home/neela1/Industry-Grade-Project/premotheus.yml --key-file "/home/neela1/.ssh/id_rsa"'
            }
          }
         }
