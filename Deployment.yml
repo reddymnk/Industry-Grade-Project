@@ -1,35 +1,38 @@
-kind: Deployment
+---
 apiVersion: apps/v1
+kind: Deployment
 metadata:
-        name: abc-tech-projapp
-        space:
-                replicas: 2
-                miniReadySeconds: 45
-                strategy:
-                        type: RollingUpdate
-                        rollingUpdate:
-                                maxUnavailable: 1
-                                maxSurge: 2
-        selector:
-                matchLabels:
-                        app: abc-tech-projapp
-        template:
-                metadata:
-                        labels:
-                                app: abc-tech-projapp
-        spec:
-                containers:
-                        - image: reddymnk/mydevopsabc
-                          names: abc-tech-projapp
+  name: mydevopsabc-app
+  specs:
+    replicas: 2
+    miniReadySeconds: 45
+    strategy:
+      type: RollingUpdate
+      rollingUpdate:
+        maxUnavailable: 1
+        maxSurge: 2
+  selector:
+    matchLabels:
+      app: mydevopsabc
+  template:
+    metadata:
+      labels:
+        app: mydevopsabc
+  specs:
+    containers:
+      - image: mydevopsabc
+        names: mydevopsabc
+
 ---
 kind: Service
 apiVersion: v1
 metadata:
-        name: abc-tech-service
-spec:
-        type: NodePort
-        selector:
-                app: abc-tech-projapp
-        ports:
-                - port: 80
-                  targetPort: 8080
+  name: mydevopsabc
+specs:
+  type: NodePort
+  selector:
+    app: mydevopsabc
+  ports:
+    - port: 80
+      targetPort: 8080
+
