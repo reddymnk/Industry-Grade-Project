@@ -47,8 +47,8 @@ pipeline {
     stage('Build Docker Image') {
 
     steps {
-        sh 'docker build -t mydevops:latest .'
-        sh 'docker tag mydevops  reddymnk/mydevops:latest'
+        sh 'docker build -t mydevopsabcabc:latest .'
+        sh 'docker tag mydevopsabc  reddymnk/mydevopsabc:latest'
     }
 }
 
@@ -66,7 +66,7 @@ pipeline {
 
     stage('Push Image to dockerHUb') {
       steps {
-        sh 'docker push reddymnk/mydevops:latest'
+        sh 'docker push reddymnk/mydevopsabc:latest'
       }
       post {
        always {
@@ -75,7 +75,7 @@ pipeline {
     }
 
  }
-    // Pull docker image from DockerHub and run in  agent instance neelapc2
+    // Pull docker image from DockerHub and run in  agent instance neelapc1
 
      stage('Deploy to K8 cluster') {
          steps {
