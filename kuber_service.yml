@@ -10,7 +10,5 @@ spec:
       port: 8443
       targetPort: 443
   type: LoadBalancer
-  ClusterIP:
-    - 10.85.0.15
   externalIPs:
-    - 10.168.1.15
+    - 192.168.1.11
